@@ -19,7 +19,7 @@ def autoplay_audio(file_path: str):
         )
 
 
-autoplay_audio("/Users/family/Documents/GitHub/ICU-HFR-Function_Approximation/main/assets/background-music.mp3")
+autoplay_audio("/Users/family/Documents/GitHub/ICU-Deployment/main/assets/background-music.mp3")
 st.title("Sepvisor")
 
 # Project description

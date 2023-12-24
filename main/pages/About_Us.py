@@ -4,8 +4,9 @@ from PIL import Image
 
 # Page title
 st.title("About Us")
-img_razi = Image.open("/Users/family/Documents/GitHub/ICU-HFR-Function_Approximation/main/assets/razi.png")
-img_hekal = Image.open("/Users/family/Documents/GitHub/ICU-HFR-Function_Approximation/main/assets/hekal.png")
+img_razi = Image.open("/Users/family/Documents/GitHub/ICU-Deployment/main/assets/razi.png")
+img_hekal = Image.open("/Users/family/Documents/GitHub/ICU-Deployment/main/assets/hekal.png")
+img_fadlu = Image.open("/Users/family/Documents/GitHub/ICU-Deployment/main/assets/fadlu.png")
 
 # Introduction
 st.write(
@@ -28,7 +29,7 @@ with col1:
 # Team member 2 in the second column
 with col2:
     st.header("Fadlurahman Asidiq P")
-    st.image(img_razi, caption="Fadlu", use_column_width=True)
+    st.image(img_fadlu, caption="Fadlu", use_column_width=True)
     st.write(
         "Jane Smith is the lead developer responsible for bringing the Sepsis Information Hub to life. "
         "With expertise in software development, Jane ensures a seamless and user-friendly experience for our visitors."

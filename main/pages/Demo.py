@@ -5,13 +5,13 @@ import numpy as np
 import pickle as pkl
 import pandas as pd
 
-with open('/Users/family/Documents/GitHub/ICU-HFR-Function_Approximation/What I need. maybe?/dqn_normal_actions_test.p', 'rb') as file:
+with open('/Users/family/Documents/GitHub/ICU-Deployment/What I need. maybe?/dqn_normal_actions_test.p', 'rb') as file:
     agent_action_test = pkl.load(file)
 
-with open('/Users/family/Documents/GitHub/ICU-HFR-Function_Approximation/What I need. maybe?/sarsa_phys/phys_actions_test.p', 'rb') as file:
+with open('/Users/family/Documents/GitHub/ICU-Deployment/What I need. maybe?/sarsa_phys/phys_actions_test.p', 'rb') as file:
     phys_action_test = pkl.load(file)
 
-data = pd.read_csv('/Users/family/Documents/GitHub/ICU-HFR-Function_Approximation/What I need. maybe?/rl_test_data_final_cont.csv')
+data = pd.read_csv('/Users/family/Documents/GitHub/ICU-Deployment/What I need. maybe?/rl_test_data_final_cont.csv')
 
 # Page title
 st.title("Demo")
@@ -76,18 +76,28 @@ if st.button("Predict"):
     # Displaying the plot using st.pyplot
     st.pyplot(plt)
 
-    show_sofa = st.checkbox("SOFA Score")
-
+    #show_sofa = st.checkbox("SOFA Score")
+    #show_gcs = st.checkbox("GCS")
     # Conditionally display text based on the checkbox value
-    if show_sofa:
-        st.write("This text is displayed because the checkbox is checked.")
+    selected_param = ["SOFA", "GCS", "SIRS", "Temp_C", "SysBP", "DiaBP", "HR"]
+    show_table = data[selected_param]
+    show_table = show_table.loc[save_indexes].reset_index(drop=True)
+    st.write("Collection of patient states")
+    st.table(show_table)
+    #if show_sofa:
+    #    selected_param.append("SOFA")
+    #else:
+    #    selected_param.remove("SOFA")
+    
+    #st.write(selected_param)
+        
         
 
     # Creating a DataFrame
-    df = pd.DataFrame(data)
+    #df = pd.DataFrame(data)
 
     # Displaying the table in Streamlit
-    st.table(df)
+    #st.table(df)
     #st.write(f"{save_indexes}")
 
 # Footer
