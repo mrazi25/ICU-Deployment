@@ -19,7 +19,6 @@ st.title("Demo")
 # Introduction
 st.write(
     "This page demonstrates a simple prediction using a hypothetical machine learning model. "
-    "Please input values for the 10 features, and the model will predict the outcome."
 )
 
 options = data['icustayid'].drop_duplicates()
@@ -42,12 +41,38 @@ if st.button("Predict"):
     
     phys_act = []
     ai_act = []
-
+    #ivfluid_dose = ['0', '>0-40', '40-205', '205-635', '>635']
+    #vaso_dose = ['0', '>0-0.110', '0.110-0.225', '0.225-0.450', '>0.450']
+    actions = ['0 ml dose of iv fluid and 0 ug/kg/h dose of vasopressor',
+              '0 ml dose of iv fluid and >0-0.110 ug/kg/h dose of vasopressor',
+              '0 ml dose of iv fluid and 0.110-0.225 ug/kg/h dose of vasopressor',
+              '0 ml dose of iv fluid and 0.225-0.450 ug/kg/h dose of vasopressor',
+              '0 ml dose of iv fluid and >0.450 ug/kg/h dose of vasopressor',
+              '>0-40 ml dose of iv fluid and 0 ug/kg/h dose of vasopressor',
+              '>0-40 ml dose of iv fluid and >0-0.110 ug/kg/h dose of vasopressor',
+              '>0-40 ml dose of iv fluid and 0.110-0.225 ug/kg/h dose of vasopressor',
+              '>0-40 ml dose of iv fluid and 0.225-0.450 ug/kg/h dose of vasopressor',
+              '>0-40 ml dose of iv fluid and >0.450 ug/kg/h dose of vasopressor',
+              '40-205 ml dose of iv fluid and 0 ug/kg/h dose of vasopressor',
+              '40-205 ml dose of iv fluid and >0-0.110 ug/kg/h dose of vasopressor',
+              '40-205 ml dose of iv fluid and 0.110-0.225 ug/kg/h dose of vasopressor',
+              '40-205 ml dose of iv fluid and 0.225-0.450 ug/kg/h dose of vasopressor',
+              '40-205 ml dose of iv fluid and >0.450 ug/kg/h dose of vasopressor',
+              '205-635 ml dose of iv fluid and 0 ug/kg/h dose of vasopressor',
+              '205-635 ml dose of iv fluid and >0-0.110 ug/kg/h dose of vasopressor',
+              '205-635 ml dose of iv fluid and 0.110-0.225 ug/kg/h dose of vasopressor',
+              '205-635 ml dose of iv fluid and 0.225-0.450 ug/kg/h dose of vasopressor',
+              '205-635 ml dose of iv fluid and >0.450 ug/kg/h dose of vasopressor',
+              '>635 ml dose of iv fluid and 0 ug/kg/h dose of vasopressor',
+              '>635 ml dose of iv fluid and >0-0.110 ug/kg/h dose of vasopressor',
+              '>635 ml dose of iv fluid and 0.110-0.225 ug/kg/h dose of vasopressor',
+              '>635 ml dose of iv fluid and 0.225-0.450 ug/kg/h dose of vasopressor',
+              '>635 ml dose of iv fluid and >0.450 ug/kg/h dose of vasopressor',]
     for i in range(len(save_indexes)):
         phys_act.append(phys_action_test[save_indexes[i]])
-        st.write(f"Physician action is giving category of {phys_act[i]} for combination of vasopressor and intrafluid doses")
+        st.write(f"Physician action is giving {actions[phys_act[i]]}")
         ai_act.append(agent_action_test[save_indexes[i]])
-        st.write(f"AI action is giving category of {ai_act[i]} for combination of vasopressor and intrafluid doses")
+        st.write(f"AI action is giving {actions[ai_act[i]]}")
         st.write("=====================================================================================\n")
 
     # Data
@@ -88,7 +113,6 @@ if st.button("Predict"):
     #    selected_param.append("SOFA")
     #else:
     #    selected_param.remove("SOFA")
-    
     #st.write(selected_param)
         
         
