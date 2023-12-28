@@ -125,9 +125,6 @@ if st.button("Predict"):
     #st.write(f"{save_indexes}")
 
 # Footer
-st.write(
-    "Note: This is a demo and the prediction result may not be meaningful without a trained model. "
-    "Replace the model loading and prediction logic with your actual machine learning model."
-)
+
 
 
