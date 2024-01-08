@@ -4,10 +4,12 @@ from PIL import Image
 
 # Page title
 st.title("About Us")
-img_razi = Image.open("/Users/family/Documents/GitHub/ICU-Deployment/main/assets/razi.png")
-img_hekal = Image.open("/Users/family/Documents/GitHub/ICU-Deployment/main/assets/hekal.png")
-img_fadlu = Image.open("/Users/family/Documents/GitHub/ICU-Deployment/main/assets/fadlu.png")
+img_razi = Image.open("main/assets/razi.png")
+img_hekal = Image.open("main/assets/hekal.png")
+img_fadlu = Image.open("main/assets/fadlu.png")
 
+logo_path = "main/assets/sepvisor.jpeg"  # Update this with the correct path to your logo
+st.sidebar.image(logo_path)
 # Introduction
 st.write(
     "Welcome to the 'About Us' page. Get to know the individuals behind the Sepvisor."
@@ -37,5 +39,16 @@ with col3:
 # Footer
 st.write(
     "If you have any inquiries or would like to get in touch with our team, please email us at "
-    "[contact@sepsisinfohub.com]. We appreciate your interest in our mission."
+    "[hfr.company@gmail.com]. We appreciate your interest in our mission."
 )
+
+text = "©2024 HFR Company. All rights reserved. The content on this website is protected by copyright law."
+text2 = "For permission requests, please contact +6287870190448."
+
+# Using HTML tags for text alignment
+centered_text = f"<p style='text-align:center'>{text}</p>"
+centered_text2 = f"<p style='text-align:center'>{text2}</p>"
+st.divider()
+# Displaying centered text using st.markdown
+st.markdown(centered_text, unsafe_allow_html=True)
+st.markdown(centered_text2, unsafe_allow_html=True)

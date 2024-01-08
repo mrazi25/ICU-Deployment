@@ -19,7 +19,8 @@ import base64
 #        )
 #autoplay_audio("/Users/family/Documents/GitHub/ICU-Deployment/main/assets/background-music.mp3")
 st.title("Sepvisor")
-
+logo_path = "main/assets/sepvisor.jpeg"  # Update this with the correct path to your logo
+st.sidebar.image(logo_path)
 # Project description
 st.write(
     "Welcome to the Sepsis Treatment Recommendation app. This application "
@@ -68,6 +69,17 @@ st.markdown(
 
 # Footer
 st.write(
-    "This information hub is created using Streamlit. If you have any questions or feedback, please "
-    "contact [Your Name] at [Your Email Address]."
+    "This Sepsis Treatment Recommendation app is created using Streamlit. If you have any questions or feedback, please "
+    "contact HFR Teams at YARSI University."
 )
+
+text = "©2024 HFR Company. All rights reserved. The content on this website is protected by copyright law."
+text2 = "For permission requests, please contact +6287870190448."
+
+# Using HTML tags for text alignment
+centered_text = f"<p style='text-align:center'>{text}</p>"
+centered_text2 = f"<p style='text-align:center'>{text2}</p>"
+st.divider()
+# Displaying centered text using st.markdown
+st.markdown(centered_text, unsafe_allow_html=True)
+st.markdown(centered_text2, unsafe_allow_html=True)

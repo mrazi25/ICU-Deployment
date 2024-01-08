@@ -1,9 +1,12 @@
 # Import necessary libraries
 import streamlit as st
+from PIL import Image
 
 # Page title
 st.title("MIMIC-III Dataset Information")
 
+logo_path = "main/assets/sepvisor.jpeg"  # Update this with the correct path to your logo
+st.sidebar.image(logo_path)
 # Introduction
 st.write(
     "The MIMIC-III (Medical Information Mart for Intensive Care III) dataset is a widely used "
@@ -72,32 +75,68 @@ st.write(
 
 # Load a sample dataset (you can replace this with your actual MIMIC-III dataset)
 # For demonstration purposes, let's assume the dataset contains a 'heart_rate' column
-# with simulated data for heart rates of patients.
-np.random.seed(42)
-num_samples = 1000
-heart_rate_data = np.random.normal(loc=75, scale=10, size=num_samples)
-df = pd.DataFrame({"heart_rate": heart_rate_data})
+# with simulated data for heart rates of patients
 
-# Display a sample of the dataset
-st.header("Sample of MIMIC-III Dataset")
-st.write(df.head())
+
+viz1 = "main/assets/viz1.png"
+viz2 = "main/assets/viz2.png"
+viz3 = "main/assets/viz3.png"
+viz4 = "main/assets/viz4.png"
+viz5 = "main/assets/viz5.png"
+
 
 # Visualization: Distribution of Heart Rates
 st.header("Exploratory Data Analysis (EDA)")
 
 # Plot the distribution of heart rates
-st.subheader("Distribution of Heart Rates")
-fig, ax = plt.subplots()
-ax.hist(df["heart_rate"], bins=20, color="skyblue", edgecolor="black")
-ax.set_xlabel("Heart Rate")
-ax.set_ylabel("Frequency")
-st.pyplot(fig)
+st.subheader("Sepsis Patients by Gender")
+st.image(viz1, caption="plot 1", use_column_width=False, width=500)
+st.write("The distribution of sepsis patients by gender, with 56.2% being male and 43.8% female, ",
+        "suggests a notable gender disparity in the prevalence of sepsis. ")
+
+st.divider()
+st.subheader("Death Among Sepsis Patients")
+st.image(viz2, caption="plot 2", use_column_width=False, width=500)
+st.write("The mortality rate of 25.3% indicates the proportion of sepsis patients in the dataset who did ",
+        "not survive the condition. This is a critical metric for assessing the severity and impact of sepsis on the studied population.")
+
+st.divider()
+st.subheader("Ethnicities")
+st.image(viz3, caption="plot 3", use_column_width=False, width=500)
+st.write("The information about the distribution of ethnicities in the MIMIC dataset, with white being the most common, suggests a demographic ",
+         "characteristic of the patient population represented in the dataset.")
+
+st.divider()
+st.subheader("Marital Status")
+st.image(viz4, caption="plot 4", use_column_width=False, width=500)
+st.write("The information about marital status among sepsis patients, with the majority being married, provides insights ",
+         "into the demographic composition of the affected population.")
+
+st.divider()
+st.subheader("Insurance Type")
+st.image(viz5, caption="plot 5", use_column_width=False, width=500)
+st.write("The distribution of insurance types among sepsis patients reflects the various ways individuals are covered for ",
+         "healthcare expenses. Medicare, in this case, is a government-sponsored insurance program primarily for individuals ",
+         "aged 65 and older, and some younger individuals with certain disabilities.")
 
 # Additional EDA visualizations can be added as needed
 
+st.divider()
 # Footer
 st.write(
     "For more detailed information and documentation about the MIMIC-III dataset, please refer to the official "
     "[MIMIC-III website](https://mimic.physionet.org/). If you have any questions or inquiries, please contact the "
     "MIMIC-III research team through their [contact page](https://mimic.physionet.org/about/team/)."
 )
+
+
+text = "©2024 HFR Company. All rights reserved. The content on this website is protected by copyright law."
+text2 = "For permission requests, please contact +6287870190448."
+
+# Using HTML tags for text alignment
+centered_text = f"<p style='text-align:center'>{text}</p>"
+centered_text2 = f"<p style='text-align:center'>{text2}</p>"
+st.divider()
+# Displaying centered text using st.markdown
+st.markdown(centered_text, unsafe_allow_html=True)
+st.markdown(centered_text2, unsafe_allow_html=True)
