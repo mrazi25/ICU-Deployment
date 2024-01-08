@@ -5,13 +5,13 @@ import pickle as pkl
 import pandas as pd
 from itertools import product
 
-with open('/Users/family/Documents/GitHub/ICU-Deployment/What I need. maybe?/dqn_normal_actions_test.p', 'rb') as file:
+with open('main/data/dqn_normal_actions_test.p', 'rb') as file:
     agent_action_test = pkl.load(file)
 
-with open('/Users/family/Documents/GitHub/ICU-Deployment/What I need. maybe?/sarsa_phys/phys_actions_test.p', 'rb') as file:
+with open('main/data/phys_actions_test.p', 'rb') as file:
     phys_action_test = pkl.load(file)
 
-data = pd.read_csv('/Users/family/Documents/GitHub/ICU-Deployment/What I need. maybe?/rl_test_data_final_cont.csv')
+data = pd.read_csv('main/data/rl_test_data_final_cont.csv')
 
 # Page title
 st.title("Demo")
