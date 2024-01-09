@@ -5,7 +5,7 @@ import pickle as pkl
 import pandas as pd
 from itertools import product
 
-with open('main/data/dqn_normal_actions_test.p', 'rb') as file:
+with open('main/data/dqn_normal_actions_test(Best).p', 'rb') as file:
     agent_action_test = pkl.load(file)
 
 with open('main/data/phys_actions_test.p', 'rb') as file:
@@ -57,6 +57,7 @@ plt.grid(True)
 st.pyplot(plt)
 plt.close()
 # Button to trigger prediction
+st.subheader("Make Treatment Recommendation With AI")
 if st.button("Predict"):
     st.subheader("Dose Intensity Recomendation for The Patients")
     
@@ -89,9 +90,10 @@ if st.button("Predict"):
     # Data
     #doses_intensity_set1 = ['High', 'Low', 'Zero', 'High', 'High', 'Low']
     #doses_intensity_set2 = ['Medium', 'High', 'Low', 'Medium', 'High', 'Medium']
-
+    st.subheader("Differences in action taken between clinician and AI")
     col1, col2 = st.columns(2)
 
+    
 # Team member 1 in the first column
     with col1:
         y_labels = ["Zero", "Low", "Medium", "High", "Very High"]
